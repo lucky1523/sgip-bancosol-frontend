@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏦 SGIP - Sistema de Gestión de Inversiones y Préstamos (Banco Sol)
 
-## Getting Started
+Frontend del sistema SGIP desarrollado para la prueba técnica de Banco Sol. Esta aplicación permite simular préstamos bajo el sistema de amortización francesa, guardar el historial en una base de datos y visualizar la trazabilidad de las transacciones.
 
-First, run the development server:
+## 🚀 Tecnologías Utilizadas
 
+* **Framework:** Next.js (App Router) / React
+* **Estilos:** Tailwind CSS
+* **Peticiones HTTP:** Axios
+* **Backend API:** .NET Core (C#) + Entity Framework Core
+* **Base de Datos:** PostgreSQL
+
+## ✨ Funcionalidades Principales (Requerimientos Cumplidos)
+
+1. **Simulador de Préstamos:** Cálculo exacto de cuotas mensuales usando TEA (Tasa Efectiva Anual).
+2. **Generación de Cronograma:** Desglose detallado de Capital, Interés y Saldo por cada cuota.
+3. **Persistencia de Datos:** Guardado de simulaciones confirmadas en la base de datos relacional.
+4. **Portafolio de Créditos:** Listado global de todos los préstamos registrados.
+5. **Historial de Transacciones:** Registro inmutable de los movimientos y desembolsos.
+
+## ⚙️ Estructura del Proyecto
+
+Se aplicó una arquitectura limpia de componentes y separación de responsabilidades:
+* `/src/app/loans/simulate`: Interfaz de simulación y cálculo.
+* `/src/app/loans/[id]`: Rutas dinámicas para visualizar el detalle de un préstamo específico.
+* `/src/lib/api.ts`: Configuración centralizada del cliente HTTP (Axios) para comunicación con la API.
+
+## 🛠️ Instalación y Ejecución Local
+
+### Prerrequisitos
+* Node.js (v18 o superior)
+* Tener el backend (`sgip-bancosol-api`) corriendo localmente en el puerto configurado.
+
+### Pasos
+1. Clonar el repositorio:
+   ```bash
+   git clone [https://github.com/TU_USUARIO/sgip-bancosol-frontend.git](https://github.com/TU_USUARIO/sgip-bancosol-frontend.git)
+
+2. Instalar Dependencias
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Configurar variables de entorno
+    . Crear un archivo .env.local en la raíz.
+    . Agregar la URL de la API: NEXT_PUBLIC_API_URL=http://localhost:5000/api (Ajustar según puerto de API)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Iniciar el servidor de desarrollo:
+    npm run dev
+   
