@@ -47,3 +47,4 @@ Se aplicó una arquitectura limpia de componentes y separación de responsabilid
 4. Iniciar el servidor de desarrollo:
     npm run dev
    
+   
